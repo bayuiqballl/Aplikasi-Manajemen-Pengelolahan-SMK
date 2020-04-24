@@ -13,7 +13,7 @@ const Guru = (props) => {
   useEffect(() => {
     props.guruShow();
   }, []);
-  // console.log(props);
+  console.log(props);
 
   const handleChangeNama = (e) => {
     setNama(e.target.value);
