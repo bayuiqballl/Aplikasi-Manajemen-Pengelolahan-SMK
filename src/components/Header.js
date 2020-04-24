@@ -6,13 +6,7 @@ import Nav from "react-bootstrap/Nav";
 
 const Header = (props) => {
   return (
-    <Navbar
-      className="fixed-top"
-      collapseOnSelect
-      expand="lg"
-      bg="dark"
-      variant="dark"
-    >
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand>
         <a
           onClick={() => {
