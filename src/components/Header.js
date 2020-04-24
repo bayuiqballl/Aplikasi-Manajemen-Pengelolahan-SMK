@@ -6,7 +6,13 @@ import Nav from "react-bootstrap/Nav";
 
 const Header = (props) => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      className="fixed-top"
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+    >
       <Navbar.Brand>
         <a
           onClick={() => {
@@ -20,14 +26,12 @@ const Header = (props) => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto"></Nav>
         <Nav className="">
-          <Nav.Link>
-            <a
-              onClick={() => {
-                props.history.push("/Siswa");
-              }}
-            >
-              Data Siswa
-            </a>
+          <Nav.Link
+            onClick={() => {
+              props.history.push("/Siswa");
+            }}
+          >
+            Data Siswa
           </Nav.Link>
           <Nav.Link>
             <a

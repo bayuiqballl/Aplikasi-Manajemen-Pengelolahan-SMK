@@ -24,7 +24,18 @@ export const getSiswaFailed = (error) => {
   };
 };
 
-export const siswaAction = () => {
+export const addSiswa = (obj) => {
+  return function (dispatch) {
+    dispatch(getSiswaBegin());
+
+    axios
+      .post("https://5ea271e9b9f5ca00166c2a8f.mockapi.io/siswa", obj)
+      .then(() => dispatch(siswaShow()))
+      .catch((error) => dispatch(getSiswaFailed(error.message)));
+  };
+};
+
+export const siswaShow = () => {
   return (dispatch) => {
     dispatch(getSiswaBegin());
 
@@ -32,5 +43,15 @@ export const siswaAction = () => {
       .get(`https://5ea271e9b9f5ca00166c2a8f.mockapi.io/siswa`)
       .then((result) => dispatch(getSiswaSuccess(result.data)))
       .catch((error) => dispatch(getSiswaFailed(error.message)));
+  };
+};
+
+export const deleteSiswa = (id) => {
+  return function (dispatch) {
+    dispatch(getSiswaBegin());
+    axios
+      .delete(`https://5ea271e9b9f5ca00166c2a8f.mockapi.io/siswa/${id}`)
+      .then(() => dispatch(siswaShow()))
+      .catch((error) => dispatch(getSiswaFailed(error.massage)));
   };
 };
